@@ -9,7 +9,6 @@ public class Scraper {
         Document doc;
         try {
             // fetching the target website returns a Connection object
-//            doc = Jsoup.connect("https://www.monster.com/jobs/search")
             doc = Jsoup.connect("https://www.monster.com/jobs/search?q=software+engineer&where=&page=1")
 //                    .data("q","software engineer intern")
 //                    .data("where","")
@@ -23,27 +22,24 @@ public class Scraper {
         //test print to check current url location and title
         System.out.println(doc.location());
         System.out.println(doc.title());
+//      System.out.println(doc.body());
 
-//        Element links  = doc.getElementsByClass("sc-gAjuZT cUPTNR").first();
+
+//        Elements links  = doc.getElementsByClass("sc-gAjuZT.cUPTNR");
+//        System.out.println(links.size());
 //        for (Element link : links){
 //            String linkHref = link.attr("href");
 //            String linkText = link.text();
 //            System.out.println(linkHref);
 //        }
 
+        //sc-gAjuZT.cUPTNR
 
-//        System.out.println(doc);
+        Elements outerLiHTMLElement = doc.select("li.sc-blKGMR.etPslv"); //returns an ArrayList<Element>
+//        Elements outerLiHTMLElement = doc.select("a[href]");
 
-        /*
-        a test to collect all <a> tags and any href attribute associated with each tag
-        */
-
-//        Elements jobTitleList = doc.getElementsByClass("sc-gAjuZT cUPTNR"); //returns an ArrayList<Element>
-        Elements jobTitleList = doc.getElementsByTag("a");
-        System.out.println(jobTitleList.size());
-        for (Element element : jobTitleList){
-            System.out.println(element.attr("href"));
-        }
+        System.out.println(outerLiHTMLElement.size());
+        System.out.println((outerLiHTMLElement.get(0));
 
 
     }
