@@ -1,12 +1,8 @@
 import java.util.Objects;
 
 public class JobPosting {
-    private String role;
-    private String company;
-    private String datePosted;
-    private String URL;
-    private String city;
-    private String state;
+
+    private String role, company, datePosted, URL, city, state;
 
     public JobPosting(){
     }

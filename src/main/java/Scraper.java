@@ -35,11 +35,10 @@ public class Scraper {
 
         //sc-gAjuZT.cUPTNR
 
-        Elements outerLiHTMLElement = doc.select("li.sc-blKGMR.etPslv"); //returns an ArrayList<Element>
-//        Elements outerLiHTMLElement = doc.select("a[href]");
-
+//        Elements outerLiHTMLElement = doc.getElementsByClass("sc-gwZKzw.evWkPy");
+        Elements outerLiHTMLElement = doc.select("ul.sc-harTkY.jEHPnr"); //returns an ArrayList<Element>
         System.out.println(outerLiHTMLElement.size());
-        System.out.println((outerLiHTMLElement.get(0));
+//        System.out.println(outerLiHTMLElement.get(0));
 
 
     }
