@@ -1,0 +1,4 @@
+{"role": "Intern","company": "SFSU","datePosted": "Dec 31, 2023","URL": "www.SFSU.edu","city": "San Francisco","state": "CA"}
+{"role": "Intern","company": "SJSU","datePosted": "Jan 1, 2023","URL": "www.SJSU.edu","city": "San Jose","state": "CA"}
+
+
