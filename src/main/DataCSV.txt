@@ -1,2 +1,2 @@
-Intern,SFSU,Dec 31 2023,www.SFSU.edu,San Francisco,CA
-Assistant,SJSU,Jan 1 2024,www.SJSU.edu,San Jose,CA
+Intern,SFSU,Dec 31 2023,San Francisco,CA,www.SFSU.edu
+Assistant,SJSU,Jan 1 2024,San Jose,CA,www.SJSU.edu

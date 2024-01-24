@@ -22,16 +22,16 @@ public class Importer {
 
         //create mongoDB connection string
         String connectionString = "mongodb+srv://nguyenkkent:QS1UKls5SSiQGJbE@jobpostingcluster.zr8ofhr.mongodb.net/?retryWrites=true&w=majority";
+        //connect to mongoDB
         MongoCollection<Document> collection = connectToMongoDB(connectionString);
 
         if (collection!=null){
             //parse CSV file
             ArrayList<String> listOfLines = parseCSVFile(filename);
-
             //Create document and insert into database
-//        for (String str : listOfLines){
-//            insertToMongo
-//        }
+            for (String line : listOfLines){
+                addToCollection(collection,line);
+            }
         }
         else{
             System.out.println("Unable to connect to Database");
@@ -53,7 +53,6 @@ public class Importer {
             String line = reader.readLine();
 
             while (line != null) {
-                System.out.println(line);
                 listOfLines.add((line));
                 line = reader.readLine();
             }
@@ -83,20 +82,36 @@ public class Importer {
                 .serverApi(serverApi)
                 .build();
 
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
-            try {
-                // Send a ping to confirm a successful connection
-//                MongoDatabase database = mongoClient.getDatabase("admin");
-//                database.runCommand(new Document("ping", 1));
-//                System.out.println("Pinged your deployment. You successfully connected to MongoDB!");
-                MongoDatabase database = mongoClient.getDatabase("WebScrapper");
-                 return database.getCollection("JobPostings");
-            } catch (MongoException e) {
+        MongoClient mongoClient = MongoClients.create(settings);
+
+            try{
+            MongoDatabase database = mongoClient.getDatabase("WebScrapper");
+            MongoCollection<Document> collection = database.getCollection("JobPostings");
+            return collection;
+            } catch(MongoException e){
                 e.printStackTrace();
                 return null;
-            }
         }
     }
+
+    /**
+     *  Function: addToCollection
+     *  Creates a mongoDB Document object from line string and add to database's collection
+     *  @param collection
+     *  @param line
+     **/
+    private static void addToCollection(MongoCollection<Document> collection, String line){
+
+        String[] fields = line.split(",");
+        Document doc = new Document("role", fields[0])
+                .append("company",fields[1])
+                .append("datePosted", fields[2])
+                .append("city", fields[3])
+                .append("state", fields[4])
+                .append("URL", fields[5]);
+        collection.insertOne(doc);
+    }
+
 
 }
 
