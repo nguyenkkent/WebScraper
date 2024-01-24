@@ -87,7 +87,11 @@ public class JobPosting {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         JobPosting that = (JobPosting) o;
-        return Objects.equals(role, that.role) && Objects.equals(company, that.company) && Objects.equals(datePosted, that.datePosted) && Objects.equals(URL, that.URL) && Objects.equals(city, that.city) && Objects.equals(state, that.state);
+        return Objects.equals(role, that.role)
+                && Objects.equals(company, that.company)
+                && Objects.equals(datePosted, that.datePosted)
+                && Objects.equals(URL, that.URL) && Objects.equals(city, that.city)
+                && Objects.equals(state, that.state);
     }
 
 }
