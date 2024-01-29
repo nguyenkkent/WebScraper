@@ -37,7 +37,7 @@ public class ImportToMongoDB {
             System.out.println("Unable to connect to Database");
         }
 
-    }//end of main
+    }
 
     /**
      *  Function: parseCSVFile
