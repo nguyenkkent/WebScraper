@@ -18,9 +18,8 @@ app.get('/about', (request, response)=>{
     return response.status(200).send("Reserved section for \"about me\"");
 })
 
-parseJson();
-//parseJson("/Users/kentn/Documents/projects/WebScraper/src/main/DataJson.txt");
-///Users/kentn/Documents/projects/WebScraper/server/parseJson.js
+//provide relatie path to text file with json objects
+parseJson("../src/main/DataJson.txt");
 
 //connect to mongoDB
 // mongoose
