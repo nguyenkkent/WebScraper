@@ -1,8 +1,11 @@
 import express from "express";
-import {PORT, mongoDBURI} from "./config.js";
+// import {PORT, mongoDBURI} from "./config.js";
 import mongoose from "mongoose";
+import "dotenv/config";
 
 const app = express();
+
+console.log(process.env.PORT);
 
 //route for home page
 app.get('/', (request, response)=>{
@@ -16,11 +19,11 @@ app.get('/about', (request, response)=>{
 
 //connect to mongoDB
 mongoose
-    .connect(mongoDBURI)
+    .connect(process.env.mongoURL)
     .then(()=>{
         console.log('App successfully connected to database');
-        app.listen(PORT, () => {
-            console.log(`App is listening on port: ${PORT}`);//use backquotes for template literals
+        app.listen(process.env.PORT, () => {
+            console.log(`App is listening on port: ${process.env.PORT}`);//use backquotes for template literals
         });
     })
     .catch((error)=>{
