@@ -21,6 +21,12 @@ const jobsSchema = new mongoose.Schema({
         required: true,
 
     },
+    city: {
+        type: String,
+    },
+    state: {
+        type: String,
+    },
 
 });
 
