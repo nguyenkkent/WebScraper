@@ -18,7 +18,7 @@ app.get('/about', (request, response)=>{
     return response.status(200).send("Reserved section for \"about me\"");
 })
 
-parseJson("../src/java/DataJson.txt");
+parseJson("../src/main/java/DataJson.txt");
 
 //connect to mongoDB
 mongoose
