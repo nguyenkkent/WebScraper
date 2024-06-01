@@ -18,17 +18,19 @@ app.get('/about', (request, response)=>{
     return response.status(200).send("Reserved section for \"about me\"");
 })
 
-parseJson("../src/main/java/DataJson.txt");
+parseJson();
+//parseJson("/Users/kentn/Documents/projects/WebScraper/src/main/DataJson.txt");
+///Users/kentn/Documents/projects/WebScraper/server/parseJson.js
 
 //connect to mongoDB
-mongoose
-    .connect(process.env.mongoURL)
-    .then(()=>{
-        console.log('App successfully connected to database');
-        app.listen(process.env.PORT, () => {
-            console.log(`App is listening on port: ${process.env.PORT}`);//use backquotes for template literals
-        });
-    })
-    .catch((error)=>{
-        console.log(error);
-    });
+// mongoose
+//     .connect(process.env.mongoURL)
+//     .then(()=>{
+//         console.log('App successfully connected to database');
+//         app.listen(process.env.PORT, () => {
+//             console.log(`App is listening on port: ${process.env.PORT}`);
+//         });
+//     })
+//     .catch((error)=>{
+//         console.log(error);
+//     });
